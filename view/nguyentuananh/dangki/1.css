@@ -1,0 +1,23 @@
+.all{
+    width: 1140px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.left{
+    width: 35%;
+    margin: auto;
+    font-family: tahoma;
+}
+.right{
+    width: 40%;
+    margin: auto;
+}
+
+.inputbackground{
+    background-color: grey;
+}
+
+
+
