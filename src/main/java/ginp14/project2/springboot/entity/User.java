@@ -1,8 +1,17 @@
 package ginp14.project2.springboot.entity;
 
+import org.hibernate.annotations.SQLInsert;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -11,25 +20,202 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
     @Column(name = "username")
+    @NotNull(message = "is required")
+    @NotEmpty(message = "is required")
     private String username;
+
     @Column(name = "password")
+    @Size(min = 5,message = "is too short")
     private String password;
-    @Column(name = "fullname")
+
+    @Column(name = "full_name")
     private String fullname;
+
     @Column(name = "gender")
     private int gender;
-    @Column(name = "DOB")
-    private Date DOB;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "email")
+    @Email
+    private String email;
+
+    @Column(name = "dob")
+    private String DOB;
+
     @Column(name = "telephone")
     private String telephone;
-    @Column(name = "point")
-    private int point;
+
+    @Column(name = "points")
+    private int points;
+
     @Column(name = "status")
     private int status;
+
     @Column(name = "created_at")
     private Timestamp created_at;
+
     @Column(name = "updated_at")
     private Timestamp updated_at;
-    private int role_id;
+
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles;
+
+    public User() {
+    }
+
+    public User(String username, @Size(min = 5, message = "is too short") @Size(max = 20, message = "is too long") String password, String fullname, int gender, String address, @Email String email, String DOB, String telephone, Timestamp created_at, Timestamp updated_at) {
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy.HH.mm.ss");
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.gender = gender;
+        this.address = address;
+        this.email = email;
+        this.DOB = DOB;
+        this.telephone = telephone;
+        this.created_at = timestamp;
+        this.updated_at = timestamp;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", DOB=" + DOB +
+                ", telephone='" + telephone + '\'' +
+                ", points=" + points +
+                ", status=" + status +
+                ", created_at=" + created_at +
+                ", updated_at=" + updated_at +
+                ", roles=" + roles +
+                '}';
+    }
 }
