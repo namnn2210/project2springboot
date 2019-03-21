@@ -48,7 +48,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/users/register").failureUrl("/users/register?error=true")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/profile")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and().logout()
