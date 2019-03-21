@@ -1,12 +1,11 @@
 package ginp14.project2.springboot.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLInsert;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,31 +21,39 @@ public class User {
     private int id;
 
     @Column(name = "username")
-    @NotNull(message = "is required")
-    @NotEmpty(message = "is required")
+    @NotBlank(message = "This field cannot be blank")
     private String username;
 
     @Column(name = "password")
-    @Size(min = 5,message = "is too short")
+    @NotBlank(message = "This field cannot be blank")
+    @Size(min = 5, message = "Password is too short")
     private String password;
 
+    @NotBlank(message = "This field cannot be blank")
     @Column(name = "full_name")
     private String fullname;
 
+
     @Column(name = "gender")
+    @NotNull(message = "Please select gender")
     private int gender;
 
     @Column(name = "address")
     private String address;
 
+
     @Column(name = "email")
-    @Email
+    @NotBlank(message = "This field cannot be blank")
+    @Email(message = "This is not a valid email")
     private String email;
 
     @Column(name = "dob")
     private String DOB;
 
+
     @Column(name = "telephone")
+    @NotBlank(message = "This field cannot be blank")
+    @Size(max = 11,message = "Phone number must be less than 11 digits")
     private String telephone;
 
     @Column(name = "points")
@@ -56,9 +63,11 @@ public class User {
     private int status;
 
     @Column(name = "created_at")
+    @CreationTimestamp
     private Timestamp created_at;
 
     @Column(name = "updated_at")
+    @UpdateTimestamp
     private Timestamp updated_at;
 
     @ManyToMany
@@ -70,11 +79,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, @Size(min = 5, message = "is too short") @Size(max = 20, message = "is too long") String password, String fullname, int gender, String address, @Email String email, String DOB, String telephone, Timestamp created_at, Timestamp updated_at) {
-        //SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy.HH.mm.ss");
-        Date date = new Date();
-        Timestamp timestamp = new Timestamp(date.getTime());
-
+    public User(@NotNull @Size(min = 2, max = 10) String username, @Size(min = 5, message = "is too short") String password, String fullname, int gender, String address, @Email String email, String DOB, String telephone, Timestamp created_at, Timestamp updated_at) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
@@ -83,8 +88,8 @@ public class User {
         this.email = email;
         this.DOB = DOB;
         this.telephone = telephone;
-        this.created_at = timestamp;
-        this.updated_at = timestamp;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public int getId() {

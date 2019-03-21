@@ -50,4 +50,13 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
+    @Override
+    public boolean isEmailPresent(String email) {
+        User user = userRepository.findByEmail(email);
+        if(user != null) {
+            return true;
+        }
+        return false;
+    }
+
 }

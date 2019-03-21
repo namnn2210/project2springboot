@@ -10,4 +10,5 @@ public interface UserService {
     public void save(User user);
     public void deleteById(int id);
     public boolean isUserPresent(String username);
+    public boolean isEmailPresent(String email);
 }
