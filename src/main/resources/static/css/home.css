@@ -1,0 +1,159 @@
+/* thanhmenu */
+.all{
+    height: 75px;
+    width: 1366px;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(37, 36, 61);
+    line-height: 75px;
+}
+.all .left{
+    width: 25%;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+.all .left .menu{
+    width: 20%;
+    height: 75px;
+    color: green;
+    font-size: 30px;
+    background: rgb(65, 62, 62);
+    line-height: 20px;
+    padding-top: 10px;
+    text-align: center;
+    
+}
+.all .left .menu samp{
+    font-family: tahoma;
+    font-size: 20px;
+    color: white;
+}
+.all .left .cricle{
+    width: 70%;
+    height: 75px;
+    display: flex;
+    line-height: 75px;
+}
+.all .left .cricle a{
+    height: 75px;
+    padding: 0 5px;
+}
+.all .left .cricle a img{
+    width: 100%;
+}
+.all .centre{
+    width: 30%;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+.all .centre .language{
+    color: white;
+}
+.all .centre .language a{}
+.all .centre .logo{
+    width: 20%;
+    height: 75px;
+}
+.all .centre .logo img{
+    width: 100%;
+}
+.all .centre .logo a{}
+.all .centre .phone{}
+.all .centre .phone a samp{
+    color: white;
+    font-family: tahoma;
+    text-decoration: none;
+}
+.all .right{
+    width: 20%;
+    height: 75px;
+    line-height: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+.all .right .circle2{
+    width: 45%;
+    height: 75px;
+    display: flex;
+    line-height: 75px;
+}
+.all .right .circle2 a{
+    height: 75px;
+    padding: 0 5px;
+}
+.all .right .circle2 a img{
+    width: 100%;
+}
+.all .right .button{
+    width: 40%;
+    height: 75px;
+    position: relative;
+}
+.all .right .button a{
+    font-family: tahoma;
+    text-decoration: none;
+    color: white;
+}
+/* thanhmenu */
+
+/* menu */
+.menuall{
+    width: 1366px;
+    height: 620px;
+    background: rgb(47, 47, 105);
+}
+.menuall .movie{
+    margin: auto;
+    text-align: center;
+    margin-top: 80px;
+}
+.menuall .movie a{
+    color: white;
+    font-family: tahoma;
+    font-size: 20px;
+    padding: 0 20px;
+}
+.menuall .chonphim{
+    width: 1200px;
+    height: 620px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.menuall .chonphim .phim{
+    width: 200px;
+    height: 420px;
+    margin-top: 100px;
+}
+.menuall .chonphim .phim .anh{
+    width: 200px;
+    height: 300px;
+}
+.menuall .chonphim .phim img{
+    width: 100%;
+    height: 100%;
+}
+.menuall .chonphim .phim h3{
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    font-family: tahoma;
+}
+.menuall .chonphim .nut{
+    background: rgb(68, 209, 63);
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 36px;
+    line-height: 36px;
+}
+.menuall .chonphim .nut .a{
+    font-family: tahoma;
+    color: white;
+}
+/* menu */
