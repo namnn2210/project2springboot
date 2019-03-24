@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface UserService {
     public List<User> findAll();
     public void save(User user);
+    public User findById(int id);
     public void deleteById(int id);
     public boolean isUserPresent(String username);
     public boolean isEmailPresent(String email);
+    public User findByUsername(String username);
 }

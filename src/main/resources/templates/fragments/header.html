@@ -1,3 +1,38 @@
-<footer th:fragment="footer">
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+    <nav class="all">
+        <div class="left">
+            <div class="menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <samp>Menu</samp>
+            </div>
+            <div class="cricle">
+                <a href=""><img th:src="@{/images/fb_logo.png}" alt=""></a>
+                <a href=""><img th:src="@{/images/lc.png}" alt=""></a>
+                <a href=""><img th:src="@{/images/mvtr.png}" alt=""></a>
+                <a href=""><img th:src="@{/images/mvtp.png}" alt=""></a>
+            </div>
+        </div>
+        <div class="centre">
+            <div class="language">
+                <a href="">VN</a>|<a href="">EN</a>
+            </div>
+            <div class="logo">
+                <a href=""><img th:src="@{/images/logo.png}" alt=""></a>
+            </div>
+            <div class="phone">
+                <a href=""><img th:src="@{/images/phone.png}" alt=""><samp>: 1900 2099</samp></a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="circle2">
+                <a href=""><img th:src="@{/images/movie-365.png}" alt=""></a>
+                <a href=""><img th:src="@{/images/bhdstar-member.png}" alt=""></a>
+            </div>
+            <div class="button">
+                <div class="den"></div>
+                <div class="login"><a href="">Đăng Nhập</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
 
-</footer>

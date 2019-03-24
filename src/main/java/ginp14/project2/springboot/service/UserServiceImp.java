@@ -37,6 +37,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public User findById(int id) {
+        return userRepository.findById(id).get();
+    }
+
+    @Override
     public void deleteById(int id) {
 
     }
@@ -57,6 +62,11 @@ public class UserServiceImp implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
 }

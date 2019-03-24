@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
-    <script type="text/javascript" th:src="@{js/boostrap.min.js}"></script>
-    <script type="text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
+    <title>Igorski.co</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" media="screen"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div th:replace="fragments/header::header"></div>
-    <div layout:fragment="content">
+    <header th:replace="fragments/header :: header"></header>
+    <div layout:fragment="content"></div>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
-    </div>
-    <div th:replace="fragments/footer::footer"></div>
+    <!-- JS -->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/home.js}"></script>
 </body>
 </html>
