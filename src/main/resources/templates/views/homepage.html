@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="fragments/master_layout"
+      layout:decorate="~{fragments/master_layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/static/css/homepage.css" th:href="@{/css/homepage.css}" type="text/css"/>
+    <meta charset="uft-8"/>
 </head>
 <body>
-    <h1>Hello</h1>
+<div layout:fragment="content">
+    Haha
+</div>
 </body>
 </html>
