@@ -51,7 +51,15 @@
                 <li class="right nav-item nav-link button">
                     <div class="btn-block">
                         <div class="den"></div>
-                        <div class="login"><a href="">Đăng Nhập</a></div>
+                        <div sec:authorize="isAuthenticated()" class="login">
+                            <a href="" th:text="${user.username}"></a> | <a th:href="@{/logout}">Logout</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated() && hasRole('ROLE_ADMIN')" class="login">
+                            <a href="" th:text="${user.username}"></a> | <a href="">Admin</a> | <a th:href="@{/logout}">Logout</a>
+                        </div>
+                        <div sec:authorize="!isAuthenticated()" class="login">
+                            <a th:href="@{/users/register}">Dang nhap</a>
+                        </div>
                     </div>
                 </li>
             </ul>
