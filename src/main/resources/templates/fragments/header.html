@@ -1,4 +1,6 @@
-<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="navbar-header container-fluid">
             <ul class="navbar-nav">
@@ -26,7 +28,7 @@
                 </li>
                 <li class="centre nav-item">
                     <div class="logo">
-                        <a href=""><img th:src="@{//www.bhdstar.vn/wp-content/uploads/2016/05/logo.png}" th:width="55" th:height="55" alt=""></a>
+                        <a th:href="@{/}"><img th:src="@{//www.bhdstar.vn/wp-content/uploads/2016/05/logo.png}" th:width="55" th:height="55" alt=""></a>
                     </div>
                 </li>
                 <li class="centre nav-item nav-link">
@@ -52,10 +54,10 @@
                     <div class="btn-block">
                         <div class="den"></div>
                         <div sec:authorize="isAuthenticated()" class="login">
-                            <a href="" th:text="${user.username}"></a> | <a th:href="@{/logout}">Logout</a>
+                            <a th:href="@{/users/profile}" th:text="${#authentication.name}"></a> | <a th:href="@{/logout}">Logout</a>
                         </div>
                         <div sec:authorize="isAuthenticated() && hasRole('ROLE_ADMIN')" class="login">
-                            <a href="" th:text="${user.username}"></a> | <a href="">Admin</a> | <a th:href="@{/logout}">Logout</a>
+                            <a href="" sec:authentication="name"></a> | <a href="">Admin</a> | <a th:href="@{/logout}">Logout</a>
                         </div>
                         <div sec:authorize="!isAuthenticated()" class="login">
                             <a th:href="@{/users/register}">Dang nhap</a>

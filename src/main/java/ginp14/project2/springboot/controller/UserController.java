@@ -37,7 +37,13 @@ public class UserController {
             return "views/register";
         }
         userService.save(user);
-        return "views/registration-confirmation";
+        return "views/homepage";
     }
 
+    @GetMapping("/profile")
+    public String showProfile(Model model, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        model.addAttribute("user",user);
+        return "views/users/user_info";
+    }
 }

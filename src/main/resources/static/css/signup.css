@@ -1,0 +1,65 @@
+.register-form-wrapper {
+    background: url("../images/bg-cinema-10.png");
+}
+.div-left, .div-right {
+    margin-top: 3%;
+}
+h4 {
+    color: #FFFFFF;
+    margin-bottom: 2%;
+}
+.login-left {
+    background-color: #1c262f;
+    color: #bfc9d2;
+    padding: 32px 25px;
+}
+
+.register-right {
+    background-color: #1c262f;
+    color: #bfc9d2;
+    padding: 25px 15px;
+}
+.login-left .txt-label {
+    width: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.input-field {
+    width: 100%;
+    background: #37424b;
+    outline: none;
+    border: none;
+}
+.controls {
+    margin-top: 25px;
+}
+.btn-submit {
+    width: 175px;
+    height: 47px;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    background: #42af33 url("../images/bg-button-yolo.png");
+}
+.promotion {
+    background: url("../images/bg-home-02.jpg") no-repeat center;
+}
+.promotion-container {
+    max-width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.app-mobile-div {
+    background: url("../images/app-background.jpg") no-repeat center;
+}
+.app-mobile {
+    margin-top: 80px;
+    height: 420px;
+}
+h2 {
+    text-transform: uppercase;
+}
+
