@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+    <div>
+        <div>
+           <h4 th:text="${user.fullname}"></h4>
+            <p><label>Points: </label><span th:text="${user.points}"></span></p>
+        </div>
+        <div>
+            <form action="#" th:action="@{/users/registerProcess}" th:object="${user}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <table>
+                    <tr>
+                        <td><label>Username</label></td>
+                        <td><input type="text" disabled th:field="${user.username}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="text" disabled th:field="${user.password}"/></td>
+                        <td><input type="button" value="Change password"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td><input type="text" disabled th:field="${user.email}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Full Name</label></td>
+                        <td><input type="text" th:field="${user.fullname}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Phone number</label></td>
+                        <td><input type="text" th:field="${user.telephone}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td><input type="text" disabled th:value="${user.gender == 1} ? 'Male' : 'Female' "/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Date of Birth</label></td>
+                        <td><input type="text" disabled th:field="${user.DOB}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Address</label></td>
+                        <td><input type="text" th:field="${user.address}"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Update"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

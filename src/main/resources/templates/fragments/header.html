@@ -1,3 +1,69 @@
-<footer th:fragment="footer">
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="navbar-header container-fluid">
+            <ul class="navbar-nav">
+                <a class="navbar-brand" href="#" id="navbardrop" data-toggle="dropdown">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <samp>Menu</samp>
+                </a>
+                <li class="left nav-item"><a href=""><img
+                        th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/fb_logo.png}" th:width="55" th:height="55" alt=""></a>
+                </li>
+                <li class="left nav-item"><a href=""><img
+                        th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/lc.png}" th:width="55" th:height="55" alt=""></a></li>
+                <li class="left nav-item"><a href=""><img
+                        th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/mvtr.png}" th:width="55" th:height="55" alt=""></a></li>
+                <li class="left nav-item"><a href=""><img
+                        th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/mvtp.png}" th:width="55" th:height="55" alt=""></a></li>
+            </ul>
 
-</footer>
+
+            <ul class="centre navbar-nav">
+                <li class="centre nav-item nav-link">
+                    <div class="language">
+                        <a href="">VN</a>|<a href="#">EN</a>
+                    </div>
+                </li>
+                <li class="centre nav-item">
+                    <div class="logo">
+                        <a href=""><img th:src="@{//www.bhdstar.vn/wp-content/uploads/2016/05/logo.png}" th:width="55" th:height="55" alt=""></a>
+                    </div>
+                </li>
+                <li class="centre nav-item nav-link">
+                    <div class="phone">
+                        <a href=""><img th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/phone.png}"
+                                        alt=""><samp>: 1900 2099</samp></a>
+                    </div>
+                </li>
+            </ul>
+
+
+            <ul class="right navbar-nav">
+                <li class="right nav-item">
+                    <a href=""><img th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/movie-365.png}" th:width="55" th:height="55"
+                                    alt=""></a>
+                </li>
+                <li class="right nav-item">
+                    <a href=""><img
+                            th:src="@{//www.bhdstar.vn/wp-content/themes/bhd/assets/images/bhdstar-member.png}" th:width="55" th:height="55"
+                            alt=""></a>
+                </li>
+                <li class="right nav-item nav-link button">
+                    <div class="btn-block">
+                        <div class="den"></div>
+                        <div sec:authorize="isAuthenticated()" class="login">
+                            <a href="" th:text="${user.username}"></a> | <a th:href="@{/logout}">Logout</a>
+                        </div>
+                        <div sec:authorize="isAuthenticated() && hasRole('ROLE_ADMIN')" class="login">
+                            <a href="" th:text="${user.username}"></a> | <a href="">Admin</a> | <a th:href="@{/logout}">Logout</a>
+                        </div>
+                        <div sec:authorize="!isAuthenticated()" class="login">
+                            <a th:href="@{/users/register}">Dang nhap</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
