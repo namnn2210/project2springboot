@@ -1,59 +1,158 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/master_layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/user_info.css}">
 </head>
 <body>
-    <h1>Account Information</h1>
-    <div>
-        <div>
-           <h4 th:text="${user.fullname}"></h4>
-            <p><label>Points: </label><span th:text="${user.points}"></span></p>
+<div class="div-info" layout:fragment="content">
+    <div class="container user-info-wrapper">
+        <div class="row">
+            <div class="col-md-6 member-edit-field">
+                <div class="member-message">
+                    <p>"Hi,<span th:text="${user.fullname}"></span></p>
+                    <p>Từ bảng thông tin tài khoản, bạn có thể xem bản sao các hoạt động của tài khoản bạn trong thời
+                        gian gần đây và cập nhật thông tin tài khoản của bạn. Chọn liên kết bên dưới để xem hoặc chỉnh
+                        sửa thông tin"</p>
+                </div>
+                <div class="member-update">
+                    <div class="member-info">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img th:src="@{/images/avatar.png}"/>
+                            </div>
+                            <div class="col-md-7 user-points">
+                                <p>Vui lòng đăng ảnh chân dung, thấy rõ mặt có kích thước: ngang 150 pixel và dọc 200 pixel (dung lượng dưới 1MB)</p>
+                                <h5 th:text="${user.fullname}"></h5>
+                                <p>Điểm thưởng: <span th:text="${user.points}"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-edit">
+                        <form action="#" th:action="@{/users/registerProcess}" th:object="${user}" method="post">
+                            <input type="hidden" th:field="*{username}"/>
+                            <div class="container">
+                                <div class="row controls">
+                                    <div class="col-md-3">
+                                        <span class="txt-label">Username (*)</span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="username" type="text" th:field="*{username}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('username')}"
+                                     th:errors="*{username}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3">
+                                        <label class="txt-label">Password (*)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <input class="input-field" id="password" type="password"
+                                                       th:field="*{password}"/></td>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="change-password-btn" type="button" value="Change Password"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('password')}"
+                                     th:errors="*{password}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Email (*)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="email" type="text" th:field="*{email}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('email')}"
+                                     th:errors="*{email}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Full Name (*)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="fullname" type="text" th:field="*{fullname}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('fullname')}"
+                                     th:errors="*{fullname}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Phone number (*)</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="telephone" type="text" th:field="*{telephone}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('telephone')}"
+                                     th:errors="*{telephone}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Date of Birth </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="DOB" type="date" th:field="*{DOB}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('DOB')}" th:errors="*{DOB}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Gender </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select class="input-field" th:field="*{gender}">
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('gender')}"
+                                     th:errors="*{gender}"></div>
+                                <div class="row controls">
+                                    <div class="col-md-3 ">
+                                        <label class="txt-label">Address</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="input-field" id="address" type="text" th:field="*{address}"/></td>
+                                    </div>
+                                </div>
+                                <div class="text text-danger" th:if="${#fields.hasErrors('address')}"
+                                     th:errors="*{address}"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 member-card">
+                <h2>MEMBER CARD INFORMATION</h2>
+                <div class="member-card-info">
+                    <div class="row">
+                        <div class="col-md-7 member-card-info-txt">
+                            <ul>
+                                <li>Username: <span th:text="${user.username}"></span></li>
+                                <li>Card Number: ONLA0124681</li>
+                                <li>Ranking: GOLD</li>
+                                <li>Created Date: 04/04/2017</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <img th:src="@{/images/default_qrcode.png}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <form action="#" th:action="@{/users/registerProcess}" th:object="${user}" method="post">
-                <input type="hidden" th:field="*{id}"/>
-                <table>
-                    <tr>
-                        <td><label>Username</label></td>
-                        <td><input type="text" disabled th:field="${user.username}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Password</label></td>
-                        <td><input type="text" disabled th:field="${user.password}"/></td>
-                        <td><input type="button" value="Change password"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Email</label></td>
-                        <td><input type="text" disabled th:field="${user.email}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Full Name</label></td>
-                        <td><input type="text" th:field="${user.fullname}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Phone number</label></td>
-                        <td><input type="text" th:field="${user.telephone}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Gender</label></td>
-                        <td><input type="text" disabled th:value="${user.gender == 1} ? 'Male' : 'Female' "/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Date of Birth</label></td>
-                        <td><input type="text" disabled th:field="${user.DOB}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Address</label></td>
-                        <td><input type="text" th:field="${user.address}"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Update"></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
+
+
     </div>
+</div>
+
 </body>
 </html>

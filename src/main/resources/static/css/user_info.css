@@ -1,0 +1,95 @@
+.div-info {
+    background: url("../images/bg-cinema-10.png");
+    color: #FFFFFF;
+}
+.member-edit-field {
+    margin-top: 4%;
+}
+.register-right {
+    background-color: #1c262f;
+    color: #bfc9d2;
+}
+.login-left .txt-label {
+    width: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #bfc9d2;
+}
+.input-field {
+    width: 100%;
+    background: #37424b;
+    outline: none;
+    border: none;
+    color: #70808e;
+    padding-left: 15px;
+    -webkit-border-radius: 2px;
+}
+.controls {
+    margin-top: 25px;
+}
+.member-update {
+    padding: 13px 2px 50px;
+    margin-bottom: 42px;
+    background: #1c262f;
+}
+.member-card {
+    background: #1c262f;
+    height: 50%;
+    margin-top: 4%;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+}
+.member-message {
+    padding: 10px 12px 20px;
+    margin-bottom: 24px;
+    font-family: "Roboto",sans-serif;
+    line-height: 18px;
+    color: #d9d9d9;
+    font-weight: 200;
+    background: #39454f;
+    font-size: 12px;
+}
+.member-card-info {
+    margin: 5px 0;
+    padding: 25px 15px;
+    background-color: #39454f;
+    border-radius: 5px;
+    border: 1px solid #40a933;
+}
+.change-password-btn {
+    right: 5px;
+    top: 0;
+    width: 125px;
+    height: 36px;
+    background: #6b7379;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    -webkit-border-radius: 2px;
+}
+.change-password-btn:hover {
+    background: #ADFF2F;
+}
+.member-card-info-txt ul {
+    list-style-type: none;
+    padding-right: 20px;
+}
+.member-card-info-txt ul li {
+    font-weight: bold;
+}
+.user-points {
+    margin-left: 30px;
+}
+.btn-submit {
+    width: 175px;
+    height: 47px;
+    color: #FFFFFF;
+    outline: none;
+    border: none;
+    background: #42af33 url("../images/bg-button-yolo.png");
+}
+
