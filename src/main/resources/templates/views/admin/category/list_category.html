@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{views/admin/fragments/master_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="div-content" layout:fragment="content">
+    <!-- TITLE -->
+    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Movie</h5></div>
+    <!-- TABLE -->
+    <div class="widget-holder">
+        <div class="widget-bg">
+            <div class="widget-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
