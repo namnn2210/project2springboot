@@ -1,0 +1,10 @@
+.movie-detail-wrapper {
+    background: url("../images/movie-details-bg.jpg");
+    color: #FFFFFF;
+}
+.table-bordered > tbody > tr > td,
+.table-bordered > thead > tr > td,
+.table-bordered {
+    border-bottom:0;
+    border-top: 0;
+}
