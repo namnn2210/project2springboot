@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/master_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/movie_detail.css}">
+</head>
+<body>
+    <div layout:fragment="content" class="movie-detail-wrapper">
+        <div class="container movie-detail">
+            <div class="row">
+                <div class="col-md-12">
+                    <span><a href="#">HOME| </a></span><span>Tên phim</span>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="#"/>
+                        </div>
+                        <div class="col-md-7">
+                            <h3>Tên phim</h3>
+                            <h4>Description</h4>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Thể loại</th>
+                                        <td>Thể loại</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Đạo diễn</th>
+                                        <td>Đạo diễn</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Diễn viên</th>
+                                        <td>Diễn viên</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Thời lượng</th>
+                                        <td>Thời lượng</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
