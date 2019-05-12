@@ -13,45 +13,59 @@
     <link rel="stylesheet" th:href="@{/css/movie_detail.css}">
 </head>
 <body>
-    <div layout:fragment="content" class="movie-detail-wrapper">
-        <div class="container movie-detail">
+<div layout:fragment="content" class="movie-detail-wrapper">
+    <div class="container movie-detail">
+        <div class="movie-detail-title">
+            <a th:href="@{/}">Home| </a><span><h3 th:text="${movie.title}"></h3></span>
+        </div>
+        <div class="movie-detail-content">
             <div class="row">
-                <div class="col-md-12">
-                    <span><a href="#">HOME| </a></span><span th:text="${movie.title}">Tên phim</span>
+                <div class="col-md-4 col-sm-4">
+                    <img class="movie-img" th:src="@{${movie.poster}}" width="293" height="437"/>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-8 col-sm-8">
+                    <div class="movie-title">
+                        <h3 th:text="${movie.title}"></h3>
+                    </div>
+                    <div class="movie-description">
+                        <p th:text="${movie.description}"></p>
+                    </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <img src="#"/>
+                        <div class="col-md-3">
+                            <h4>Thể loại</h4>
                         </div>
-                        <div class="col-md-7">
-                            <h3>Tên phim</h3>
-                            <h4>Description</h4>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Thể loại</th>
-                                        <td>Thể loại</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Đạo diễn</th>
-                                        <td>Đạo diễn</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Diễn viên</th>
-                                        <td>Diễn viên</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Thời lượng</th>
-                                        <td>Thời lượng</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-9">
+                            <p th:text="${movie.getCategory().getName()}"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Director</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p th:text="${movie.director}"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Cast</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p th:text="${movie.cast}"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Running time</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p th:text="${movie.duration}"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
