@@ -1,5 +1,6 @@
 package ginp14.project2.springboot.service;
 
+import ginp14.project2.springboot.dao.CategoryRepository;
 import ginp14.project2.springboot.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,21 +11,21 @@ import java.util.List;
 public class CategoryServiceImp implements CategoryService {
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryRepository categoryRepository;
 
     @Override
     public List<Category> findAll() {
-        return categoryService.findAll();
+        return categoryRepository.findAll();
     }
 
     @Override
     public void save(Category category) {
-        categoryService.save(category);
+        categoryRepository.save(category);
     }
 
     @Override
     public Category findById(int id) {
-        return categoryService.findById(id);
+        return categoryRepository.findById(id).get();
     }
 
     @Override
