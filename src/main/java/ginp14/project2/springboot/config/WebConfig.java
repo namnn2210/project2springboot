@@ -69,7 +69,10 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
         return memory;
     }
 
-
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/**");
+    }
 
 
 }

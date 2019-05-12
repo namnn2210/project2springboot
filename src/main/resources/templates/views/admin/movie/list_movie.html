@@ -2,10 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{views/admin/fragments/master_layout}">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
 <div class="div-content" layout:fragment="content">
     <!-- TITLE -->
@@ -14,23 +10,49 @@
     <div class="widget-holder">
         <div class="widget-bg">
             <div class="widget-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Duration</th>
-                        <th>Category</th>
-                        <th>Director</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Trailer</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                <div th:if="${movieList.size() >= 0}">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Category</th>
+                            <th>Director</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Trailer</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="movie:${movieList}">
+                            <tr>
+                                <td th:text="${movie.id}"></td>
+                                <td th:text="${movie.title}"></td>
+                                <td th:text="${movie.duration}"></td>
+                                <td th:text="${movie.category.name}"></td>
+                                <td th:text="${movie.director}"></td>
+                                <td></td>
+                                <td th:text="${movie.description}"></td>
+                                <td></td>
+                                <td th:text="${movie.status}"></td>
+                                <td></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+                <div th:unless="${movieList.size() >= 0}">
+                    <div th:unless="${categoryList >= 0}">
+                        There is no movie, please click <a href="#">here</a> to create new movie :)
+                    </div>
+                    <div th:if="${categoryList >= 0}">
+                        There is no category, please click <a href="#">here</a> to create new category :)
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

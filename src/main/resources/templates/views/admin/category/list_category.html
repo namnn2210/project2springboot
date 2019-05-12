@@ -24,7 +24,17 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    <th:block th:each="category:${categoryList}">
+                        <tr>
+                            <td th:text="${category.id}"></td>
+                            <td th:text="${category.name}"></td>
+                            <td th:text="${category.description}"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </th:block>
+                    </tbody>
                 </table>
             </div>
         </div>
