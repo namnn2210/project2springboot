@@ -16,7 +16,8 @@
 <div layout:fragment="content" class="movie-detail-wrapper">
     <div class="container movie-detail">
         <div class="movie-detail-title">
-            <h3 th:href="@{/}">Home | </h3><h3 id="movie-title" th:text="${movie.title}"></h3>
+            <h3 id="home-link"><a th:href="@{/}">Home | </a></h3>
+            <h3 id="movie-title" th:text="${movie.title}"></h3>
         </div>
         <div class="movie-detail-content">
             <div class="row">
