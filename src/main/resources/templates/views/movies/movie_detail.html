@@ -13,45 +13,71 @@
     <link rel="stylesheet" th:href="@{/css/movie_detail.css}">
 </head>
 <body>
-    <div layout:fragment="content" class="movie-detail-wrapper">
-        <div class="container movie-detail">
+<div layout:fragment="content" class="movie-detail-wrapper">
+    <div class="container movie-detail">
+        <div class="movie-detail-title">
+            <h3 id="home-link"><a th:href="@{/}">Home | </a></h3>
+            <h3 id="movie-title" th:text="${movie.title}"></h3>
+        </div>
+        <div class="movie-detail-content">
             <div class="row">
-                <div class="col-md-12">
-                    <span><a href="#">HOME| </a></span><span th:text="${movie.title}">Tên phim</span>
+                <div class="col-md-4 col-sm-4">
+                    <img class="movie-img" th:src="@{${movie.poster}}" width="293" height="437"/>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-8 col-sm-8">
+                    <div class="movie-title">
+                        <h3 th:text="${movie.title}"></h3>
+                    </div>
+                    <div class="movie-description">
+                        <p th:text="${movie.description}"></p>
+                    </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <img src="#"/>
+                        <div class="col-md-3">
+                            <h4>Thể loại</h4>
                         </div>
-                        <div class="col-md-7">
-                            <h3>Tên phim</h3>
-                            <h4>Description</h4>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Thể loại</th>
-                                        <td>Thể loại</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Đạo diễn</th>
-                                        <td>Đạo diễn</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Diễn viên</th>
-                                        <td>Diễn viên</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Thời lượng</th>
-                                        <td>Thời lượng</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-md-9">
+                            <h5 th:text="${movie.getCategory().getName()}"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Director</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <h5 th:text="${movie.director}"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Cast</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <h5 th:text="${movie.cast}"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Running time</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <h5 th:text="${movie.duration}"></h5>
+                        </div>
+                    </div>
+                    <div class="row btn-trailer-booking">
+                        <div class="col-md-3">
+                            <button>TRAILER</button>
+                        </div>
+                        <div class="col-md-3 booking-now-div">
+                            <button><i class="fa fa-ticket"></i>BOOKING NOW</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="showtimes">
+            <h3 id="mua-ve">Lịch Chiếu</h3>
+        </div>
     </div>
+</div>
 </body>
 </html>
