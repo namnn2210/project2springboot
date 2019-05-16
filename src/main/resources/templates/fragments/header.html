@@ -1,7 +1,7 @@
 <header th:fragment="header"
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="navbar-header container-fluid">
             <ul class="navbar-nav">
                 <a class="navbar-brand" href="#" id="navbardrop" data-toggle="dropdown">
@@ -66,6 +66,60 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>-->
+    <div class="main-header">
+        <div id="menu"></div>
+        <div id="header">
+            <div class="header-top">
+                <a class="logo" th:href="@{/}">
+                    <img alt="logo" class="logo" th:src="@{//www.bhdstar.vn/wp-content/uploads/2016/05/logo.png}" />
+                </a>
+                <ul class="list-socials">
+                    <li>
+                        <a target="_blank" th:href="@{//https://www.facebook.com/BHDStar}">
+                            <img alt="facebook" th:src="@{/images/fb_logo.png}" th:width="55" th:height="55"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img th:src="@{/images/lc.png}" alt="lich-chieu" th:width="55" th:height="55">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img th:src="@{/images/mvtr.png}" alt="mvtr" th:width="55" th:height="55">
+                        </a>
+                    </li>
+                </ul>
+                <div class="div-language">
+                    <a href="">VN</a> | <a href="#">EN</a>
+                </div>
+                <a class="hotline" href="#"><span>
+                    <img th:src="@{/images/phone.png}" alt="hotline-bhd"></span><span class="phonenumber">: 1900 2099</span>
+                </a>
+                <div class="header-right">
+                    <a target="_blank" href="#" class="top--link">
+                        <img th:src="@{/images/movie-365.png}" alt="365" th:width="55" th:height="55">
+                    </a>
+                    <a sec:authorize="!isAuthenticated()" target="_blank" href="#" class="top--link">
+                        <img th:src="@{/images/bhdstar-member.png}" alt="MEMBER" th:width="55" th:height="55">
+                    </a>
+                </div>
+                <div sec:authorize="!isAuthenticated()" class="btn-login">
+                    <a th:href="@{/users/register}">Đăng Nhập</a>
+                </div>
+                <div sec:authorize="isAuthenticated() && hasRole('ROLE_ADMIN')" class="admin-pg">
+                    <a href="" sec:authentication="name"></a> | <a href="">Admin</a> | <a th:href="@{/logout}">Logout</a>
+                </div>
+                <div sec:authorize="isAuthenticated()" class="user-logged-in">
+                    <ul class="logged-in">
+                        <li><a class="user-li" th:href="@{/users/profile}" th:text="${#authentication.name}"></a></li>
+                        <li class="before-li logout-btn"><a th:href="@{/logout}">Logout</a></li>
+                    </ul>
+                </div>
+                <img alt="" class="line-header" th:src="@{/images/line-header1.png}"/>
+            </div>
+        </div>
+    </div>
 </header>
 
