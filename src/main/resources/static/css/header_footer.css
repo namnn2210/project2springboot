@@ -1,0 +1,192 @@
+#header .header-top {
+    z-index: 99;
+    position: relative;
+    padding-top: 19px;
+    height: 75px;
+    width: 100%;
+    background: url("../images/bg-header.jpg") 0 0 repeat-x;
+}
+
+#header .logo {
+    z-index: 99999;
+    margin-top: -3px;
+    position: absolute;
+    top: 7px;
+    left: 49.8%;
+    max-width: 80px;
+}
+
+#header .line-header {
+    position: absolute;
+    top: 75px;
+    left: 22.5%;
+}
+
+#header .line-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+#header .list-socials {
+    margin-top: -10px;
+    float: none;
+    margin-left: 110px;
+    margin-bottom: -2px;
+    padding-right: 50px;
+    font-size: 0px;
+}
+li {
+    margin-right: 15px;
+    display: inline-block;
+}
+.div-language {
+    position: absolute;
+    right: 50%;
+    z-index: 55;
+    bottom: 26%;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.div-language a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.div-language a:hover {
+    text-decoration: none;
+    color: #89c441;
+    transition: 0.4s ease all;
+}
+.hotline {
+    position: absolute;
+    left: 56%;
+    bottom: 28%;
+    z-index: 56;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-size: 20px;
+    text-decoration: none;
+}
+.hotline:hover {
+    text-decoration: none;
+    color: #89c441;
+    transition: 0.4s ease all;
+}
+.header-right {
+    position: absolute;
+    left: 80%;
+    bottom: 18%;
+    z-index: 57;
+}
+.header-right a {
+    margin-right: 30px;
+}
+.btn-login {
+    position: absolute;
+    left: 91%;
+    bottom: 22%;
+    background-color: #4a5368;
+    padding: 10px;
+    font-size: 17px;
+
+}
+.btn-login a {
+    color: #FFFFFF;
+}
+.btn-login a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.user-logged-in {
+    position: absolute;
+    left: 83%;
+    bottom: 20%;
+}
+.logged-in {
+    display: inline-block;
+    font-size: 25px;
+}
+.logged-in a {
+    text-decoration: none;
+}
+.user-li , .logout-btn {
+    text-transform: uppercase;
+}
+.user-li {
+    font-weight: 600;
+    color: #89c441;
+}
+
+.logout-btn a{
+    color: #FFFFFF;
+}
+.logout-btn a:hover , .user-li:hover{
+    text-decoration: none;
+    color: #c3cc26;
+    transition: 0.4s ease all;
+}
+.logged-in .before-li:before {
+    content: "|";
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 20px;
+    height: 100%;
+    text-align: center;
+    color: white;
+}
+footer {
+    position: relative;
+    padding-top: 30px;
+    background: url(../images/bg-grid.jpg) top center repeat;
+    color: #fff;
+}
+.footer-row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+footer .col-md-3 {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+footer .title {
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    position: relative;
+}
+footer .title:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 37px;
+    height: 3px;
+    background: #c3cc26;
+}
+.footer-list {
+    display: block;
+    margin-bottom: 11px;
+}
+.footer-list a {
+    color: #c3cc26;
+
+}
+.footer-list a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: 0.4s ease all;
+}
+.text-white {
+    border-top: 2px solid #343434;
+    padding: 26px 0px 26px 0px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+}
