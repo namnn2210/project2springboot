@@ -5,16 +5,19 @@
 <head>
     <title>BHD STAR</title>
     <meta charset="uft-8"/>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/slick.css}">
+    <link rel="stylesheet" th:href="@{/css/slick-theme.css}">
+
+
 </head>
 <body>
 <div layout:fragment="content">
-    <!-- slide 1 -->
+    <!--&lt;!&ndash; slide 1 &ndash;&gt;
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -23px">
 
-        <!-- Indicators -->
+        &lt;!&ndash; Indicators &ndash;&gt;
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -23,7 +26,7 @@
             <li data-target="#myCarousel" data-slide-to="4"></li>
         </ol>
 
-        <!-- Wrapper for slides -->
+        &lt;!&ndash; Wrapper for slides &ndash;&gt;
         <div class="carousel-inner">
             <div class="item active">
                 <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}" alt=""
@@ -52,110 +55,110 @@
         </div>
     </div>
 
-<!--    &lt;!&ndash;slide 2&ndash;&gt;-->
-<!--    <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false"-->
-<!--         style="margin-top: -23px; background-color: black">-->
+&lt;!&ndash;    &lt;!&ndash;slide 2&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false"&ndash;&gt;
+&lt;!&ndash;         style="margin-top: -23px; background-color: black">&ndash;&gt;
 
-<!--        &lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-<!--        <div class="carousel-inner container justify-content-center" style="background-color: black;">-->
-<!--            <div class="item active" style="margin: 10px 0px 0px;">-->
-<!--                <div th:each="movie : ${movies}" class="d-flex justify-content-around">-->
-<!--                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">-->
-<!--                        <a href="">-->
-<!--                            <img th:src="@{${movie.poster}}"-->
-<!--                                 alt="" style="height:300px; width: 200px;" class="">-->
-<!--                        </a>-->
-<!--                        <a th:text="${movie.title}" class="text-white d-flex justify-content-around" href="">Tên phim</a>-->
-<!--                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>-->
-<!--                    </div>-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;margin-bottom: 50px">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                </div>-->
+&lt;!&ndash;        &lt;!&ndash; Wrapper for slides &ndash;&gt;&ndash;&gt;
+&lt;!&ndash;        <div class="carousel-inner container justify-content-center" style="background-color: black;">&ndash;&gt;
+&lt;!&ndash;            <div class="item active" style="margin: 10px 0px 0px;">&ndash;&gt;
+&lt;!&ndash;                <div th:each="movie : ${movies}" class="d-flex justify-content-around">&ndash;&gt;
+&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;
+&lt;!&ndash;                        <a href="">&ndash;&gt;
+&lt;!&ndash;                            <img th:src="@{${movie.poster}}"&ndash;&gt;
+&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;
+&lt;!&ndash;                        </a>&ndash;&gt;
+&lt;!&ndash;                        <a th:text="${movie.title}" class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;
+&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;
+&lt;!&ndash;                    </div>&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;margin-bottom: 50px">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;                </div>&ndash;&gt;
 
-<!--            </div>-->
+&lt;!&ndash;            </div>&ndash;&gt;
 
-<!--&lt;!&ndash;            <div class="item">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="d-flex justify-content-around">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;margin-bottom: 50px">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a href="">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        </div>-->
+&lt;!&ndash;&lt;!&ndash;            <div class="item">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                <div class="d-flex justify-content-around">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;margin-bottom: 50px">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    <div class="col-md-3 d-flex justify-content-around flex-column" style="height:450px;max-width: 230px;">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a href="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                            <img th:src="@{//www.bhdstar.vn/wp-content/uploads/2019/03/BHD-Star-APP-1920x1080-Web.jpg}"&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                                 alt="" style="height:300px; width: 200px;" class="">&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        </a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <a class="text-white d-flex justify-content-around" href="">Tên phim</a>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                        <button class="btn btn-success d-flex justify-content-around" type="button" href="">Mua vé</button>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;            </div>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;        </div>&ndash;&gt;
 
     <ul th:each="movie : ${movies}">
         <li><a th:href="@{/movies/detail(movieId=${movie.id})}" th:text="${movie.title}"></a></li>
     </ul>
 
 
-        <!-- Left and right controls -->
+        &lt;!&ndash; Left and right controls &ndash;&gt;
         <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
@@ -164,6 +167,11 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>-->
+    <div class="your-class">
+        <div>your content</div>
+        <div>your content</div>
+        <div>your content</div>
     </div>
 
     <!--card member register-->
@@ -189,9 +197,7 @@
         </div>
     </div>
 
-    <!-- event -->
-
-    <!-- Present app mobile -->
+    <script type="text/javascript" th:src="@{/js/slick.min.js}"></script>
 </div>
 </body>
 </html>
