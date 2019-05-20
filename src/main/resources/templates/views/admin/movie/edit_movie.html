@@ -13,43 +13,40 @@
         <div class="widget-holder">
             <div class="widget-bg">
                 <div class="widget-body clearfix">
-                    <div th:if="${message != null && message != ''}">
-                        <div th:if="${message == 'Create Successful'}" th:text="${message}" class="alert alert-success"></div>
-                        <div th:if="${message == 'Create Fail'}" th:text="${message}" class="alert alert-success"></div>
-                    </div>
-                    <form class="form-material" action="#" th:action="@{/admin/movie/create-process}"
+                    <form class="form-material" action="#" th:action="@{/admin/movie/edit-process}"
                           th:object="${movie}" method="post">
+                        <input type="hidden" name="movieId" th:field="*{id}" th:value="${movie.id}">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="name" type="text" th:field="*{title}">
+                                <input class="form-control" id="name" type="text" th:field="*{title}" th:value="${movie.title}">
                                 <label for="name">Movie's Title</label>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+                                <textarea class="form-control" id="description" rows="3" th:field="*{description}" th:value="${movie.description}"></textarea>
                                 <label for="description">Description</label>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="duration" type="number" min="60" max="500" th:field="*{duration}">
+                                <input class="form-control" id="duration" type="number" min="60" max="500" th:field="*{duration}" th:value="${movie.duration}">
                                 <label for="duration">Duration</label>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="director" type="text" th:field="*{director}">
+                                <input class="form-control" id="director" type="text" th:field="*{director}" th:value="${movie.director}">
                                 <label for="director">Director</label>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="cast" type="text" th:field="*{cast}">
+                                <input class="form-control" id="cast" type="text" th:field="*{cast}" th:value="${movie.cast}">
                                 <label for="cast">Cast</label>
                             </div>
                         </div>
@@ -71,14 +68,14 @@
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="poster" type="text" th:field="*{poster}">
+                                <input class="form-control" id="poster" type="text" th:field="*{poster}" th:value="${movie.poster}">
                                 <label for="poster">Poster</label>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input class="form-control" id="trailer" type="text" th:field="*{trailer}">
+                                <input class="form-control" id="trailer" type="text" th:field="*{trailer}" th:value="${movie.trailer}">
                                 <label for="trailer">Trailer</label>
                             </div>
                         </div>
@@ -87,7 +84,8 @@
                             <div class="form-group">
                                 <select class="form-control" id="category" th:field="*{category}">
                                     <th:block th:each="category:${categoryList}">
-                                        <option th:text="${category.name}" th:id="${category.id}"  th:value="${category.id}"></option>
+                                        <option th:if="${movie.category.id == category.id}" th:text="${category.name}" th:id="${category.id}"  th:value="${category.id}" selected></option>
+                                        <option th:unless="${movie.category.id == category.id}" th:text="${category.name}" th:id="${category.id}"  th:value="${category.id}"></option>
                                     </th:block>
                                 </select>
                                 <label for="category">Select Category</label>
@@ -96,7 +94,7 @@
 
                         <div class="col-lg-12">
                             <div>
-                                <input type="submit" value="Create" class="btn btn-block btn-success"/>
+                                <input type="submit" value="Save" class="btn btn-block btn-success"/>
                             </div>
                         </div>
                     </form>

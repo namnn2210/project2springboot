@@ -20,7 +20,7 @@ public class MovieServiceImp implements MovieService {
 
     @Override
     public void save(Movie movie) {
-
+        movieRepository.save(movie);
     }
 
     @Override
@@ -30,6 +30,6 @@ public class MovieServiceImp implements MovieService {
 
     @Override
     public void deleteById(int id) {
-
+        movieRepository.deleteById(id);
     }
 }

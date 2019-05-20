@@ -9,36 +9,39 @@
 <body>
 <div class="div-content" layout:fragment="content">
     <!-- TITLE -->
-    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Movie</h5></div>
+    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Category</h5></div>
     <!-- TABLE -->
-    <div class="widget-holder">
-        <div class="widget-bg">
-            <div class="widget-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <th:block th:each="category:${categoryList}">
+    <div class="widget-list">
+        <div class="widget-holder">
+            <div class="widget-bg">
+                <div class="widget-body clearfix">
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td th:text="${category.id}"></td>
-                            <td th:text="${category.name}"></td>
-                            <td th:text="${category.description}"></td>
-                            <td></td>
-                            <td></td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
-                    </th:block>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="category:${categoryList}">
+                            <tr>
+                                <td th:text="${category.id}"></td>
+                                <td th:text="${category.name}"></td>
+                                <td th:text="${category.description}"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
