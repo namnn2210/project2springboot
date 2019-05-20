@@ -4,55 +4,71 @@
       layout:decorate="~{views/admin/fragments/master_layout}">
 <body>
 <div class="div-content" layout:fragment="content">
+    <script>
+        $(".delete-button").click( function() {
+            confirm('Are you sure to delete this movie ?');
+            // alert(this.id);
+        })
+    </script>
     <!-- TITLE -->
     <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Movie</h5></div>
     <!-- TABLE -->
-    <div class="widget-holder">
-        <div class="widget-bg">
-            <div class="widget-body">
-                <div th:if="${movieList.size() >= 0}">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Duration</th>
-                            <th>Category</th>
-                            <th>Director</th>
-                            <th>Image</th>
-                            <th>Description</th>
-                            <th>Trailer</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <th:block th:each="movie:${movieList}">
+    <div class="widget-list">
+        <div class="widget-holder">
+            <div class="widget-bg">
+                <div class="widget-body">
+                    <div th:if="${message != null && message != ''}">
+                        <div th:if="${message == 'Edit Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Edit Fail'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Fail'}" th:text="${message}" class="alert alert-success"></div>
+                    </div>
+                    <div th:if="${movieList.size() >= 0}">
+                        <table class="table">
+                            <thead>
                             <tr>
-                                <td th:text="${movie.id}"></td>
-                                <td th:text="${movie.title}"></td>
-                                <td th:text="${movie.duration}"></td>
-                                <td th:text="${movie.category.name}"></td>
-                                <td th:text="${movie.director}"></td>
-                                <td></td>
-                                <td th:text="${movie.description}"></td>
-                                <td></td>
-                                <td th:text="${movie.status}"></td>
-                                <td></td>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Duration</th>
+                                <th>Category</th>
+                                <th>Director</th>
+                                <th>Image</th>
+                                <th>Description</th>
+                                <th>Trailer</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
-                        </th:block>
-                        </tbody>
-                    </table>
-                </div>
-                <div th:unless="${movieList.size() >= 0}">
-                    <div th:unless="${categoryList >= 0}">
-                        There is no movie, please click <a href="#">here</a> to create new movie :)
+                            </thead>
+                            <tbody>
+                            <th:block th:each="movie:${movieList}">
+                                <tr>
+                                    <td th:text="${movie.id}"></td>
+                                    <td th:text="${movie.title}"></td>
+                                    <td th:text="${movie.duration}"></td>
+                                    <td th:text="${movie.category.name}"></td>
+                                    <td th:text="${movie.director}"></td>
+                                    <td><img th:src="${movie.poster}" width="120px" height="150px"/></td>
+                                    <!--<td></td>-->
+                                    <td th:text="${movie.description}"></td>
+                                    <td></td>
+                                    <!--<td><iframe th:src="${movie.trailer}" width="120px" height="150px"/></td>-->
+                                    <td th:text="${movie.status}"></td>
+                                    <td><a th:href="@{/admin/movie/edit(movieId=${movie.id})}"><i class="material-icons">mode_edit</i></a><a th:id="${movie.id}" class="delete-button"><!--th:href="@{/admin/movie/delete(movieId=${movie.id})}"--><i class="material-icons">delete</i></a></td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
                     </div>
-                    <div th:if="${categoryList >= 0}">
-                        There is no category, please click <a href="#">here</a> to create new category :)
+                    <div th:unless="${movieList.size() >= 0}">
+                        <div th:unless="${categoryList >= 0}">
+                            There is no movie, please click <a href="#">here</a> to create new movie :)
+                        </div>
+                        <div th:if="${categoryList >= 0}">
+                            There is no category, please click <a href="#">here</a> to create new category :)
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
