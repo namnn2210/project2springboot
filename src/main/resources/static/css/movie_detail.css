@@ -33,6 +33,13 @@ button:hover {
     color:limegreen;
     transition: 0.4s ease all;
 }
+.iframe-trailer {
+    margin-top: 50px;
+}
+.iframe {
+    border: none;
+
+}
 #mua-ve {
     text-align: center;
     text-transform: uppercase;

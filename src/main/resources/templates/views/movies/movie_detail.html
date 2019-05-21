@@ -65,15 +65,15 @@
                     </div>
                     <div class="row btn-trailer-booking">
                         <div class="col-md-3">
-                            <button>TRAILER</button>
+                            <button class="btn-showtrailer">TRAILER</button>
                         </div>
                         <div class="col-md-3 booking-now-div">
                             <button><i class="fa fa-ticket"></i>BOOKING NOW</button>
                         </div>
                     </div>
                     <div class="iframe-trailer">
-                        <iframe width="420" height="315"
-                                th:src="@{//https://www.youtube.com/embed/tgbNymZ7vqYn}">
+                        <iframe class="iframe" width="420" height="315"
+                                th:src="${movie.trailer}">
                         </iframe>
                     </div>
                 </div>
@@ -84,5 +84,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
