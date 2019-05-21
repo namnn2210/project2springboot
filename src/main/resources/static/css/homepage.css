@@ -157,3 +157,7 @@
     color: white;
 }
 /* menu */
+
+.slider2-wrapper {
+    background: url("../images/movie-details-bg.jpg");
+}

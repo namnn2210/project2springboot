@@ -19,6 +19,7 @@ public class MovieController {
     @GetMapping("/detail")
     public String showMovieDetail(@RequestParam int movieId, Model model) {
         Movie movie = movieService.findById(movieId);
+        movie.setTrailer(movie.getTrailer().replace("watch?v=","embed/"));
         model.addAttribute("movie",movie);
         return "views/movies/movie_detail";
     }
