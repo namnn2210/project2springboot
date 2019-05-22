@@ -161,3 +161,29 @@
 .slider2-wrapper {
     background: url("../images/movie-details-bg.jpg");
 }
+.movie-title {
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
+}
+.movie-title:hover {
+    text-decoration: none;
+    color: #c3cc26;
+    transition: 0.4s ease all;
+}
+.btn-book {
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    background-color: limegreen;
+    color:#FFFFFF;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+}
+.btn-book:hover {
+    background-color: white;
+    color:limegreen;
+    transition: 0.4s ease all;
+}
