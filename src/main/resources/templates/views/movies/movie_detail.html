@@ -81,6 +81,9 @@
         </div>
         <div class="showtimes">
             <h3 id="mua-ve">Lịch Chiếu</h3>
+            <select th:each="showtime : ${movie_showtimes}">
+                <option th:text="${showtime.date}"></option>
+            </select>
         </div>
     </div>
 </div>

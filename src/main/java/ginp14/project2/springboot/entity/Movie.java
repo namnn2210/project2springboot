@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 @Table(name = "movies")
@@ -54,8 +55,7 @@ public class Movie {
     private Category category;
 
     @OneToMany(mappedBy = "movie")
-    private ShowTime showTime;
-
+    private Set<ShowTime> showTimes;
 
 
     @Column(name = "created_at")
@@ -69,7 +69,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(@NotNull(message = "This field cannot be blank") String title, @NotNull(message = "This field cannot be blank") String description, @NotNull(message = "This field cannot be blank") int duration, @NotNull(message = "This field cannot be blank") String director, @NotNull(message = "This field cannot be blank") String cast, @NotNull(message = "This field cannot be blank") String poster, @NotNull(message = "This field cannot be blank") String trailer, @NotNull(message = "This field cannot be blank") int status, @NotNull(message = "This field cannot be blank") Category category, ShowTime showTime, Timestamp created_at, Timestamp updated_at) {
+    public Movie(@NotNull(message = "This field cannot be blank") String title, @NotNull(message = "This field cannot be blank") String description, @NotNull(message = "This field cannot be blank") int duration, @NotNull(message = "This field cannot be blank") String director, @NotNull(message = "This field cannot be blank") String cast, @NotNull(message = "This field cannot be blank") String poster, @NotNull(message = "This field cannot be blank") String trailer, @NotNull(message = "This field cannot be blank") int status, @NotNull(message = "This field cannot be blank") Category category, Timestamp created_at, Timestamp updated_at) {
         this.title = title;
         this.description = description;
         this.duration = duration;
@@ -79,7 +79,6 @@ public class Movie {
         this.trailer = trailer;
         this.status = status;
         this.category = category;
-        this.showTime = showTime;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
@@ -180,13 +179,6 @@ public class Movie {
         this.updated_at = updated_at;
     }
 
-    public ShowTime getShowTime() {
-        return showTime;
-    }
-
-    public void setShowTime(ShowTime showTime) {
-        this.showTime = showTime;
-    }
 
     @Override
     public String toString() {
@@ -201,7 +193,6 @@ public class Movie {
                 ", trailer='" + trailer + '\'' +
                 ", status=" + status +
                 ", category=" + category +
-                ", showTime=" + showTime +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +
                 '}';

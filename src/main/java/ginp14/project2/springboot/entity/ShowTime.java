@@ -1,12 +1,18 @@
 package ginp14.project2.springboot.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Entity
+@Table(name = "show_times")
 public class ShowTime {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @NotNull(message = "This field cannot be blank")
+    private int id;
 
     @Column(name = "date")
     @NotNull(message = "This field cannot be blank")
@@ -15,6 +21,7 @@ public class ShowTime {
     @Column(name = "time")
     @NotNull(message = "This field cannot be blank")
     private String time;
+
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
@@ -28,6 +35,14 @@ public class ShowTime {
         this.date = date;
         this.time = time;
         this.movie = movie;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDate() {
@@ -57,7 +72,8 @@ public class ShowTime {
     @Override
     public String toString() {
         return "ShowTime{" +
-                "date='" + date + '\'' +
+                "id=" + id +
+                ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", movie=" + movie +
                 '}';
