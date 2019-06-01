@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 @Table(name = "movies")
@@ -52,6 +53,10 @@ public class Movie {
     @JoinColumn(name = "category_id")
     @NotNull(message = "This field cannot be blank")
     private Category category;
+
+    @OneToMany(mappedBy = "movie")
+    private Set<ShowTime> showTimes;
+
 
     @Column(name = "created_at")
     @CreationTimestamp
@@ -174,6 +179,7 @@ public class Movie {
         this.updated_at = updated_at;
     }
 
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -182,7 +188,7 @@ public class Movie {
                 ", description='" + description + '\'' +
                 ", duration=" + duration +
                 ", director='" + director + '\'' +
-                ", cast=" + cast +
+                ", cast='" + cast + '\'' +
                 ", poster='" + poster + '\'' +
                 ", trailer='" + trailer + '\'' +
                 ", status=" + status +

@@ -39,7 +39,8 @@
                 <div class="slider2">
                     <div th:each="movie : ${movies}">
                         <img th:src="@{${movie.poster}}" alt="" style="height:300px; width: 200px;"/>
-                        <a th:href="@{/movies/detail(movieId=${movie.id})}" th:text="${movie.title}"></a>
+                        <h4><a class="movie-title" th:href="@{/movies/detail(movieId=${movie.id})}" th:text="${movie.title}"></a></h4>
+                        <input class="btn-book" type="button" value="BOOKING NOW"/>
                     </div>
                 </div>
             </div>
