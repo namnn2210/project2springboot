@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Set;
@@ -17,7 +18,7 @@ public class Category {
     private int id;
 
     @Column(name = "name")
-    @NotNull(message = "This field cannot be blank")
+    @NotBlank(message = "This field cannot be blank")
     private String name;
 
     @Column(name = "description")
@@ -31,7 +32,7 @@ public class Category {
     @UpdateTimestamp
     private Timestamp updated_at;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Movie> movies;
 
     public Category() {

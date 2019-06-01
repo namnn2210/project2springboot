@@ -8,6 +8,16 @@
 </head>
 <body>
 <div class="div-content" layout:fragment="content">
+    <script>
+        function checkDelete(id)
+        {
+            if(confirm('Are you sure to delete this movie ?') == true){
+                if(confirm('If you delete this category, all movies of this category will be deleted. Do you still want to delete it ?')){
+                    window.location.href = "http://localhost:8080/admin/category/delete?catId=" + id;
+                }
+            }
+        }
+    </script>
     <!-- TITLE -->
     <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Category</h5></div>
     <!-- TABLE -->
@@ -15,13 +25,18 @@
         <div class="widget-holder">
             <div class="widget-bg">
                 <div class="widget-body clearfix">
+                    <div th:if="${message != null && message != ''}">
+                        <div th:if="${message == 'Edit Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Edit Fail'}" th:text="${message}" class="alert alert-danger"></div>
+                        <div th:if="${message == 'Delete Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Fail'}" th:text="${message}" class="alert alert-danger"></div>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -31,8 +46,7 @@
                                 <td th:text="${category.id}"></td>
                                 <td th:text="${category.name}"></td>
                                 <td th:text="${category.description}"></td>
-                                <td></td>
-                                <td></td>
+                                <td><a th:href="@{/admin/category/edit(catId=${category.id})}"><i class="material-icons">mode_edit</i></a><a href="#" class="delete-button" th:id="${category.id}" onclick="checkDelete(this.id)"><i class="material-icons">delete</i></a></td>
                             </tr>
                         </th:block>
                         </tbody>

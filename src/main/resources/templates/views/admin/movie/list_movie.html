@@ -5,10 +5,12 @@
 <body>
 <div class="div-content" layout:fragment="content">
     <script>
-        $(".delete-button").click( function() {
-            confirm('Are you sure to delete this movie ?');
-            // alert(this.id);
-        })
+        function checkDelete(id)
+        {
+            if(confirm('Are you sure to delete this movie ?') == true){
+                window.location.href = "http://localhost:8080/admin/movie/delete?movieId=" + id;
+            }
+        }
     </script>
     <!-- TITLE -->
     <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Movie</h5></div>
@@ -53,7 +55,7 @@
                                     <td></td>
                                     <!--<td><iframe th:src="${movie.trailer}" width="120px" height="150px"/></td>-->
                                     <td th:text="${movie.status}"></td>
-                                    <td><a th:href="@{/admin/movie/edit(movieId=${movie.id})}"><i class="material-icons">mode_edit</i></a><a th:id="${movie.id}" class="delete-button"><!--th:href="@{/admin/movie/delete(movieId=${movie.id})}"--><i class="material-icons">delete</i></a></td>
+                                    <td><a th:href="@{/admin/movie/edit(movieId=${movie.id})}"><i class="material-icons">mode_edit</i></a><a href="#" th:id="${movie.id}" class="delete-button" onclick="checkDelete(this.id)"><!--th:href="@{/admin/movie/delete(movieId=${movie.id})}">--><i class="material-icons">delete</i></a></td>
                                 </tr>
                             </th:block>
                             </tbody>
