@@ -30,6 +30,6 @@ public class CategoryServiceImp implements CategoryService {
 
     @Override
     public void deleteById(int id) {
-
+        categoryRepository.deleteById(id);
     }
 }
