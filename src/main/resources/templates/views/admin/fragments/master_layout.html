@@ -28,6 +28,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" th:href="@{/css/assets/css/style.css}" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Head Libs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
@@ -124,6 +125,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children"><a href="javascript:void(0);" class="ripple"><i class="material-icons">movie</i> <span class="hide-menu">Showtime</span></a>
+                        <ul class="list-unstyled sub-menu">
+                            <li><a href="/admin/showtime">List Showtime</a>
+                            </li>
+                            <li><a href="/admin/showtime/create">Create New Showtime</a>
+                            </li>
+                        </ul>
+                    </li>
                     
                     <li class="list-divider"></li>
                     <li><a href="#"><i class="list-icon material-icons">settings_power</i> <span class="hide-menu">Log Out</span></a>
@@ -152,7 +161,6 @@
 </div>
 <!--/ #wrapper -->
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
 <script th:src="@{/css/assets/js/bootstrap.min.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>

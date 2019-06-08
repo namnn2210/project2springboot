@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{views/admin/fragments/master_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Category</title>
+</head>
+<body>
+<div class="div-content" layout:fragment="content">
+    <!--<form action="#" th:action="@{/admin/movie}" th:object="${movie}" method="post"></form>-->
+    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">Create New Category</h5></div>
+    <div class="widget-list">
+        <div class="widget-holder">
+            <div class="widget-bg">
+                <div class="widget-body clearfix">
+                    <form class="form-material" action="#" th:action="@{/admin/category/create-process}"
+                          th:object="${showtime}" method="post">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input class="form-control" id="name" type="text" th:field="*{name}">
+                                <label for="name">Category Name</label>
+                            </div>
+                            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                            <textarea class="form-control" id="description" rows="3"
+                                      th:field="*{description}"></textarea>
+                                <label for="description">Description</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div>
+                                <input type="submit" value="Create" class="btn btn-block btn-success"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

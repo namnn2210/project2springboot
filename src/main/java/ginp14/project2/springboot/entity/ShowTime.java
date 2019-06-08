@@ -22,6 +22,9 @@ public class ShowTime {
     @NotNull(message = "This field cannot be blank")
     private String time;
 
+    @Column(name = "roomid")
+    @NotNull(message = "This field cannot be blank")
+    private int roomId;
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
@@ -31,10 +34,11 @@ public class ShowTime {
     public ShowTime() {
     }
 
-    public ShowTime(@NotNull(message = "This field cannot be blank") String date, @NotNull(message = "This field cannot be blank") String time, @NotNull(message = "This field cannot be blank") Movie movie) {
+    public ShowTime(@NotNull(message = "This field cannot be blank") String date, @NotNull(message = "This field cannot be blank") String time, @NotNull(message = "This field cannot be blank") Movie movie, @NotNull(message = "This field cannot be blank") int roomId) {
         this.date = date;
         this.time = time;
         this.movie = movie;
+        this.roomId = roomId;
     }
 
     public int getId() {
@@ -69,12 +73,21 @@ public class ShowTime {
         this.movie = movie;
     }
 
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
+
     @Override
     public String toString() {
         return "ShowTime{" +
                 "id=" + id +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
+                ", roomId=" + roomId +
                 ", movie=" + movie +
                 '}';
     }

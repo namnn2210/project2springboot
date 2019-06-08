@@ -2,9 +2,11 @@ package ginp14.project2.springboot.controller;
 
 import ginp14.project2.springboot.entity.Category;
 import ginp14.project2.springboot.entity.Movie;
+import ginp14.project2.springboot.entity.ShowTime;
 import ginp14.project2.springboot.entity.User;
 import ginp14.project2.springboot.service.CategoryService;
 import ginp14.project2.springboot.service.MovieService;
+import ginp14.project2.springboot.service.ShowTimeService;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,9 @@ public class AdminController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ShowTimeService showTimeService;
 
     @GetMapping("/home")
     public String showAdminDashboard() {
@@ -171,5 +176,14 @@ public class AdminController {
             message = "Delete Fail";
         }
         return "redirect:";
+    }
+
+    // Showtime create
+    @GetMapping("/showtime")
+    public String showShowtime(Model model){
+        List<ShowTime> showTime = showTimeService.findAll();
+        model.addAttribute("listShowTime",showTime);
+        model.addAttribute("message",message);
+        return "views/admin/showtime/list_showtime";
     }
 }

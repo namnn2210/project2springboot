@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{views/admin/fragments/master_layout}">
+<body>
+<div class="div-content" layout:fragment="content">
+    <script>
+        jQuery(document).ready(function ($) {
+            $("a.show-calendar-moc").click(function () {
+                var tagId = this.id;
+                var movieId = tagId.replace("show-calender-","");
+                alert("Success " + movieId);
+            });
+        })
+
+        function checkDelete(id)
+        {
+            if(confirm('Are you sure to delete this movie ?') == true){
+                window.location.href = "http://localhost:8080/admin/movie/delete?movieId=" + id;
+            }
+        }
+    </script>
+    <!-- TITLE -->
+    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">List Movie</h5></div>
+    <!-- TABLE -->
+    <div class="widget-list">
+        <div class="widget-holder">
+            <div class="widget-bg">
+                <div class="widget-body">
+                    <div th:if="${message != null && message != ''}">
+                        <div th:if="${message == 'Edit Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Edit Fail'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Fail'}" th:text="${message}" class="alert alert-success"></div>
+                    </div>
+
+
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-success" style="width: 30%" role="progressbar"><span class="sr-only">20% Complete</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
