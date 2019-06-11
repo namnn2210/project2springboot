@@ -22,7 +22,7 @@ public class ShowTime {
     @NotNull(message = "This field cannot be blank")
     private String time;
 
-    @Column(name = "roomid")
+    @Column(name = "room_id")
     @NotNull(message = "This field cannot be blank")
     private int roomId;
 

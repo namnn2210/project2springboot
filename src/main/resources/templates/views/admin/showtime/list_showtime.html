@@ -8,14 +8,22 @@
         jQuery(document).ready(function ($) {
             $("a.show-calendar-moc").click(function () {
                 var tagId = this.id;
-                var movieId = tagId.replace("show-calender-","");
+                var movieId = tagId.replace("show-calender-", "");
                 alert("Success " + movieId);
+            });
+
+            $("input.show-showtime-btn").click(function () {
+               var date = $("input.date-pick").val();
+               var room_id = $("select.room-pick").children("option:selected").val();
+               alert("Date : " + date + " And Room Id : "+room_id);
+               $.ajax({
+                  method: post
+               });
             });
         })
 
-        function checkDelete(id)
-        {
-            if(confirm('Are you sure to delete this movie ?') == true){
+        function checkDelete(id) {
+            if (confirm('Are you sure to delete this movie ?') == true) {
                 window.location.href = "http://localhost:8080/admin/movie/delete?movieId=" + id;
             }
         }
@@ -28,18 +36,46 @@
             <div class="widget-bg">
                 <div class="widget-body">
                     <div th:if="${message != null && message != ''}">
-                        <div th:if="${message == 'Edit Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Edit Successful'}" th:text="${message}"
+                             class="alert alert-success"></div>
                         <div th:if="${message == 'Edit Fail'}" th:text="${message}" class="alert alert-success"></div>
-                        <div th:if="${message == 'Delete Successful'}" th:text="${message}" class="alert alert-success"></div>
+                        <div th:if="${message == 'Delete Successful'}" th:text="${message}"
+                             class="alert alert-success"></div>
                         <div th:if="${message == 'Delete Fail'}" th:text="${message}" class="alert alert-success"></div>
                     </div>
 
-
-                    <div class="progress progress-lg">
-                        <div class="progress-bar bg-success" style="width: 30%" role="progressbar"><span class="sr-only">20% Complete</span>
+                    <form class="form-material">
+                        <div class="form-group input-group input-has-value">
+                            <input type="text" class="form-control datepicker date-pick" value="06/13/2017"> <span
+                                class="input-group-addon"><i class="list-icon material-icons">date_range</i></span>
                         </div>
-                    </div>
 
+                        <div class="form-group">
+                            <select class="form-control room-pick" id="l13">
+                                <option value="1">Room 1</option>
+                                <option value="2">Room 2</option>
+                                <option value="3">Room 3</option>
+                                <option value="4">Room 4</option>
+                                <option value="5">Room 5</option>
+                            </select>
+                            <label for="l13">Select Room</label>
+                        </div>
+
+
+                        <div>
+                            <input type="button" value="Show" class="btn btn-block btn-success show-showtime-btn"/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="widget-list">
+        <div class="widget-holder">
+            <div class="widget-bg">
+                <div class="widget-body show-showtime-item">
                 </div>
             </div>
         </div>
