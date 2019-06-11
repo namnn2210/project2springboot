@@ -15,9 +15,37 @@
             $("input.show-showtime-btn").click(function () {
                var date = $("input.date-pick").val();
                var room_id = $("select.room-pick").children("option:selected").val();
+               var find_data = {
+                   date:date,
+                   room_id:room_id
+               }
                alert("Date : " + date + " And Room Id : "+room_id);
                $.ajax({
-                  method: post
+                   type:"POST",
+                   contentType:"application/json",
+                   url:"/showtime/getShowtimes",
+                   data: JSON.stringify(find_data),
+                   cache: false,
+                   timeout: 600000,
+                   dataType: 'json',
+                   success:function (resp) {
+                       if(resp.length == 0 || resp == null) {
+                           alert("Không có suất chiếu theo ngày và room bạn đã chọn !");
+                       }
+                       else {
+                           $(".choose-show-time-time").show();
+                           var text = "";
+                           for(var i = 0 ;i<resp.length;i++) {
+                               text += '<option class="show-time-time" >';
+                               text += resp[i].time;
+                               text += '</option>';
+                           }
+                           $(".select-show-time").html(text);
+                       }
+                   },
+                   error:function () {
+                       console.log("Lỗi");
+                   }
                });
             });
         })
