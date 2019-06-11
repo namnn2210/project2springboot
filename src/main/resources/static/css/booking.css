@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+.booking-wrapper {
+    margin-top:50px;
+}
+.progressbar {
+    background: #4fc245;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+}
+.make-left {
+    margin-left: 30px;
+}
+.movie-overview {
+    margin-top:30px;
+}
+.col-md-7 {
+    margin-left: 18px;
+}
+.cart {
+    background: #333;
+}
+.cart h2 {
+    font-size: 22px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 10px;
+}

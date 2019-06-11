@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/master_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/booking.css}">
+</head>
+<body>
+<div layout:fragment="content" class="booking-wrapper">
+    <div class="container booking-action">
+        <div class="progressbar">
+            <div class="row">
+                <div class="col-md-2 make-left selected">
+                    <label>1. Chọn vé</label>
+                </div>
+                <div class="col-md-2 make-left">
+                    <label>2. Chọn ghế</label>
+                </div>
+                <div class="col-md-2 make-left">
+                    <label>3. Chọn đồ ăn</label>
+                </div>
+                <div class="col-md-2 make-left">
+                    <label>4. Xác nhận</label>
+                </div>
+                <div class="col-md-2 make-left">
+                    <label>5. Đặt vé thành công</label>
+                </div>
+            </div>
+        </div>
+        <div class="movie-overview">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img th:src="@{${movie.poster}}" width="200" height="300"/>
+                        </div>
+                        <div class="col-md-7">
+                            <h4 th:text="${movie.title}"></h4>
+                            <p>Showing on</p>
+                            <p>BHD Star - Screen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cart">
+                        <h2>ĐƠN HÀNG CỦA BẠN</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

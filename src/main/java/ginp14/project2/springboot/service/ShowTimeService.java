@@ -9,4 +9,5 @@ public interface ShowTimeService {
     public void save(ShowTime showTime);
     public void findById(int id);
     public ShowTime findByMovieId(int movieId);
+    public List<ShowTime> findByDateAndMovieId(String date, int movieId);
 }
