@@ -33,4 +33,10 @@ public class ShowTimeServiceImp implements ShowTimeService {
         return showTimeRepository.findByMovieId(movieId);
     }
 
+    @Override
+    public List<ShowTime> findByDateAndMovieId(String date,int movieId) {
+        return showTimeRepository.findByDateAndMovieId(date,movieId);
+    }
+
+
 }

@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('.slider2').slick({
         infinite: true,
         speed: 300,
-        slidesToShow: 7,
+        slidesToShow: 5,
         slidesToScroll: 2,
         arrows:true,
         responsive: [
