@@ -25,9 +25,7 @@ public class MovieController {
     public String showMovieDetail(@RequestParam int movieId, Model model) {
         Movie movie = movieService.findById(movieId);
         movie.setTrailer(movie.getTrailer().replace("watch?v=","embed/"));
-        ShowTime movie_showtimes = showTimeService.findByMovieId(movie.getId());
         model.addAttribute("movie",movie);
-        model.addAttribute("movie_showtimes",movie_showtimes);
         return "views/movies/movie_detail";
     }
 }
