@@ -1,9 +1,6 @@
 package ginp14.project2.springboot.controller;
 
-import ginp14.project2.springboot.entity.Category;
-import ginp14.project2.springboot.entity.Movie;
-import ginp14.project2.springboot.entity.ShowTime;
-import ginp14.project2.springboot.entity.User;
+import ginp14.project2.springboot.entity.*;
 import ginp14.project2.springboot.service.CategoryService;
 import ginp14.project2.springboot.service.MovieService;
 import ginp14.project2.springboot.service.ShowTimeService;
@@ -184,6 +181,33 @@ public class AdminController {
         List<ShowTime> showTime = showTimeService.findAll();
         model.addAttribute("listShowTime",showTime);
         model.addAttribute("message",message);
+//        System.out.println(showTimeService.findNearestShowtimeAfter("09:05:00","2019-06-11",1));
+        message = "";
         return "views/admin/showtime/list_showtime";
+    }
+
+    @PostMapping("/showtime/getShowtimes")
+    public @ResponseBody List<ShowTime> getShowtimesByDateAndRoomId(@RequestBody FindCriteria find_data) {
+        String newDateAarr[] = find_data.getDate().split("/");
+        StringBuilder sb = new StringBuilder();
+        sb.append(newDateAarr[2]).append("-").append(newDateAarr[0]).append("-").append(newDateAarr[1]);
+        System.out.println(showTimeService.findByDateAndRoomId(sb.toString(),find_data.getId()).size());
+        System.out.println(sb.toString() + " - " + find_data.getId());
+        return showTimeService.findByDateAndRoomId(sb.toString(),find_data.getId());
+    }
+
+    @GetMapping("/showtime/create")
+    public String showAdminShowtimeCreateForm(Model model){
+        ShowTime showTime = new ShowTime();
+        List<Movie> movieList = movieService.findAll();
+        model.addAttribute("showtime",showTime);
+        model.addAttribute("movieList", movieList);
+        return "views/admin/showtime/create_showtime";
+    }
+
+    @PostMapping("/showtime/checkShowtime")
+    public @ResponseBody boolean checkShowtime(@RequestBody String date,@RequestBody int roomId, @RequestBody String time) {
+
+        return false;
     }
 }

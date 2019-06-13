@@ -6,6 +6,14 @@
 <div class="div-content" layout:fragment="content">
     <script>
         jQuery(document).ready(function ($) {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+
+
+            $('input.date-pick').datepicker('setDate',mm+'/'+dd +'/'+yyyy);
+            $(".show-showtime-list").hide();
             $("a.show-calendar-moc").click(function () {
                 var tagId = this.id;
                 var movieId = tagId.replace("show-calender-", "");
@@ -13,40 +21,73 @@
             });
 
             $("input.show-showtime-btn").click(function () {
-               var date = $("input.date-pick").val();
-               var room_id = $("select.room-pick").children("option:selected").val();
-               var find_data = {
-                   date:date,
-                   room_id:room_id
-               }
-               alert("Date : " + date + " And Room Id : "+room_id);
-               $.ajax({
-                   type:"POST",
-                   contentType:"application/json",
-                   url:"/showtime/getShowtimes",
-                   data: JSON.stringify(find_data),
-                   cache: false,
-                   timeout: 600000,
-                   dataType: 'json',
-                   success:function (resp) {
-                       if(resp.length == 0 || resp == null) {
-                           alert("Không có suất chiếu theo ngày và room bạn đã chọn !");
-                       }
-                       else {
-                           $(".choose-show-time-time").show();
-                           var text = "";
-                           for(var i = 0 ;i<resp.length;i++) {
-                               text += '<option class="show-time-time" >';
-                               text += resp[i].time;
-                               text += '</option>';
-                           }
-                           $(".select-show-time").html(text);
-                       }
-                   },
-                   error:function () {
-                       console.log("Lỗi");
-                   }
-               });
+                var date = $("input.date-pick").val();
+                var room_id = $("select.room-pick").children("option:selected").val();
+                var find_data = {
+                    date: date,
+                    id: room_id
+                }
+                alert("Date : " + date + " And Room Id : " + room_id);
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/admin/showtime/getShowtimes",
+                    data: JSON.stringify(find_data),
+                    cache: false,
+                    timeout: 600000,
+                    dataType: 'json',
+                    success: function (resp) {
+                        var text = '';
+                        $(".show-showtime-list").show();
+                        if (resp.length == 0 || resp == null) {
+                            text = '<Label> There&apos;s no Showtime on this date and at this room </Label>'
+                            alert("Không có suất chiếu theo ngày và room bạn đã chọn !");
+                        } else {
+
+                            var text = "";
+
+                            text += '<Label>Room: </Label> ' + room_id + '<br> <Label>Date: </Label> ' + date;
+
+                                text += '<table class="table"> <thead> <tr> <th>ID</th><th>Start Time</th><th>End Time</th><th>Movie Name</th><th>Duration</th><th>Action</th></tr></thead>'
+                                text += '<tbody>'
+                            for (var i = 0; i < resp.length; i++) {
+                                var time = resp[i].time.split(":");
+                                var duration = resp[i].movie.duration;
+                                while (duration % 5 != 0){
+                                    duration += 1;
+                                }
+                                duration += 10;
+                                while (duration > 60){
+                                    duration -= 60;
+                                    time[0] = parseInt(time[0]) + 1;
+                                    time[1] = parseInt(time[1]) + duration;
+                                    if (time[1] >=60){
+                                        time[1] -= 60;
+                                        time[0]+=1;
+                                    }
+                                }
+
+                                text += '<tr>'
+                                text += '<td>' + resp[i].id + '</td>'
+                                text += '<td>' + resp[i].time + '</td>'
+                                text += '<td>' + time[0]+':'+time[1]+':'+time[2]+ '</td>'
+                                text += '<td>' + resp[i].movie.title + '</td>'
+                                text += '<td>' + resp[i].movie.duration +'</td>'
+                                text += '<td><a href="#"><i class="material-icons">mode_edit</i></a><a href="#" th:id="${movie.id}" class="delete-button" onclick="checkDelete(this.id)"><i class="material-icons">delete</i></a></td>'
+                                text += '</tr>'
+                            }
+                                text += '</tbody>'
+                                text += '</table>'
+
+
+
+                        }
+                        $(".show-showtime-item").html(text);
+                    },
+                    error: function () {
+                        console.log("Lỗi");
+                    }
+                });
             });
         })
 
@@ -74,7 +115,7 @@
 
                     <form class="form-material">
                         <div class="form-group input-group input-has-value">
-                            <input type="text" class="form-control datepicker date-pick" value="06/13/2017"> <span
+                            <input type="text" class="form-control datepicker date-pick" value=""> <span
                                 class="input-group-addon"><i class="list-icon material-icons">date_range</i></span>
                         </div>
 
@@ -100,7 +141,7 @@
         </div>
     </div>
 
-    <div class="widget-list">
+    <div class="widget-list show-showtime-list">
         <div class="widget-holder">
             <div class="widget-bg">
                 <div class="widget-body show-showtime-item">

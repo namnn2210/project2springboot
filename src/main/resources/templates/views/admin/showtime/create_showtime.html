@@ -8,31 +8,92 @@
 </head>
 <body>
 <div class="div-content" layout:fragment="content">
+    <script>
+        jQuery(document).ready(function ($){
+            $(".btn-create").hide();
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+
+            function getReponseDate(date){
+                var dateArr = date.split("/");
+                return dateArr[2] +"-"+ dateArr[0]+"-"+dateArr[1];
+            }
+
+
+            $('input.date-pick').datepicker('setDate',mm+'/'+dd +'/'+yyyy);
+            $('.btn-check').click(function () {
+                var date = getReponseDate($('.date-pick').val());
+                var roomId = $('.select-room').val();
+                var movieId = $('.select-movie').val();
+                var time = "";
+                if ($('.clock-pick').val() =="" || $('.clock-pick').val()===""){
+                    alert("Please enter the start time of this showtime")
+                }
+                else {
+                    time = $('.clock-pick').val()+':00';
+                    //Hàm ajax check kết quả xem có thể tạo ko
+                }
+
+            });
+        });
+    </script>
     <!--<form action="#" th:action="@{/admin/movie}" th:object="${movie}" method="post"></form>-->
-    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">Create New Category</h5></div>
+    <div class="row page-title clearfix"><h5 class="mr-0 mr-r-5">Create New Showtime</h5></div>
     <div class="widget-list">
         <div class="widget-holder">
             <div class="widget-bg">
                 <div class="widget-body clearfix">
-                    <form class="form-material" action="#" th:action="@{/admin/category/create-process}"
+                    <form class="form-material" action="#" th:action="@{/admin/showtime/create-process}"
                           th:object="${showtime}" method="post">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <input class="form-control" id="name" type="text" th:field="*{name}">
-                                <label for="name">Category Name</label>
-                            </div>
-                            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-                        </div>
 
                         <div class="col-lg-12">
-                            <div class="form-group">
-                            <textarea class="form-control" id="description" rows="3"
-                                      th:field="*{description}"></textarea>
-                                <label for="description">Description</label>
+                            <div class="form-group input-group input-has-value">
+                                <input type="text" class="form-control datepicker date-pick" value=""> <span
+                                    class="input-group-addon"><i class="list-icon material-icons">date_range</i></span>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
+                            <div class="form-group">
+                                <select class="form-control select-room" id="l13">
+                                    <option value="1">Room 1</option>
+                                    <option value="2">Room 2</option>
+                                    <option value="3">Room 3</option>
+                                    <option value="4">Room 4</option>
+                                    <option value="5">Room 5</option>
+                                </select>
+                                <label for="l13">Select Room</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <select class="form-control select-movie" id="l14">
+                                    <th:block th:each="movie:${movieList}">
+                                        <option th:id="${movie.id}" th:text="${movie.title}" th:value="${movie.id}"></option>
+                                    </th:block>
+                                </select>
+                                <label for="l14">Select Movie</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <label class="form-control-label">Default ClockPicker</label>
+                            <div class="form-group">
+                                <div class="input-group clockpicker">
+                                    <input type="text" class="form-control clock-pick" data-masked-input="99:99" id="sampleClockPicker1"> <span class="input-group-addon"><span class="material-icons list-icon">watch_later</span></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <a href="#" class="btn btn-block btn-primary color-light btn-check">Check</a>
+                        </div>
+
+                        <div class="col-lg-12 btn-create">
                             <div>
                                 <input type="submit" value="Create" class="btn btn-block btn-success"/>
                             </div>
