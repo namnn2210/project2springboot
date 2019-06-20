@@ -5,6 +5,14 @@
 <body>
 <div class="div-content" layout:fragment="content">
     <script>
+        jQuery(document).ready(function ($) {
+            $("a.show-calendar-moc").click(function () {
+                var tagId = this.id;
+                var movieId = tagId.replace("show-calender-","");
+                alert("Success " + movieId);
+            });
+        })
+
         function checkDelete(id)
         {
             if(confirm('Are you sure to delete this movie ?') == true){
@@ -55,7 +63,8 @@
                                     <td></td>
                                     <!--<td><iframe th:src="${movie.trailer}" width="120px" height="150px"/></td>-->
                                     <td th:text="${movie.status}"></td>
-                                    <td><a th:href="@{/admin/movie/edit(movieId=${movie.id})}"><i class="material-icons">mode_edit</i></a><a href="#" th:id="${movie.id}" class="delete-button" onclick="checkDelete(this.id)"><!--th:href="@{/admin/movie/delete(movieId=${movie.id})}">--><i class="material-icons">delete</i></a></td>
+                                    <td><a th:href="@{/admin/movie/edit(movieId=${movie.id})}"><i class="material-icons">mode_edit</i></a><a href="#" th:id="${movie.id}" class="delete-button" onclick="checkDelete(this.id)"><!--th:href="@{/admin/movie/delete(movieId=${movie.id})}">--><i class="material-icons">delete</i></a>
+                                        <a href="#" th:id="${'show-calender-' + movie.id}" class="show-calendar-moc"><i class="material-icons">event_note</i></a></td>
                                 </tr>
                             </th:block>
                             </tbody>
