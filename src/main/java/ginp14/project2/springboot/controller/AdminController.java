@@ -206,8 +206,72 @@ public class AdminController {
     }
 
     @PostMapping("/showtime/checkShowtime")
-    public @ResponseBody boolean checkShowtime(@RequestBody String date,@RequestBody int roomId, @RequestBody String time) {
+    public @ResponseBody String checkShowtime(@RequestBody FindCriteria find_data) {
+        ShowTime showTimeBefore = showTimeService.findNearestShowtimeBefore(find_data.getTime(), find_data.getDate(), find_data.getId());
+        ShowTime showTimeAfter = showTimeService.findNearestShowtimeAfter(find_data.getTime(), find_data.getDate(), find_data.getId());
+        System.out.println(find_data.getId());
+        System.out.println(showTimeAfter);
+        System.out.println(showTimeBefore);
+        if (showTimeAfter == null && showTimeBefore == null){
+            return "true";
+        }
+        // Startime
+        String startTime = find_data.getTime();
+        // Endtime
+        Movie movie = movieService.findById(find_data.getId2());
+        int duration = movie.getDuration();
+        String endTime = getEndTime(startTime,duration);
+
+        String startTimeAfter="";
+        String endTimeBefore="";
+        if (showTimeAfter != null){
+            startTimeAfter = showTimeAfter.getTime();
+        }
+
+        if (showTimeBefore != null) {
+            endTimeBefore = getEndTime(showTimeBefore.getTime(), showTimeBefore.getMovie().getDuration());
+        }
+
+        if (checkGreaterDate(startTime, endTimeBefore) && checkGreaterDate(startTimeAfter,endTime)){
+            return "true";
+        } else if (showTimeAfter == null && checkGreaterDate(startTime, endTimeBefore)){
+            return "true";
+        } else if (showTimeBefore == null && checkGreaterDate(startTimeAfter,endTime)){return "true";}
+
+        return "false";
+    }
+
+    // if time1 >= time2 return true
+    public boolean checkGreaterDate(String time1, String time2){
+        if (time1 == "" || time2 == ""){
+            return false;
+        }
+        String[] time1Arr = time1.split(":");
+        int hour1 = Integer.parseInt(time1Arr[0]);
+        int minute1 = Integer.parseInt(time1Arr[1]);
+        String[] time2Arr = time2.split(":");
+        int hour2 = Integer.parseInt(time2Arr[0]);
+        int minute2 = Integer.parseInt(time2Arr[1]);
+
+        if (hour1 > hour2 || (hour1 == hour2 && minute1 >= minute2)){
+            return true;
+        }
 
         return false;
+    }
+
+    public String getEndTime(String time, int duration){
+        while(duration % 5 != 0){
+            duration +=1;
+        }
+        duration += 10;
+        String[] timeArr = time.split(":");
+        int hour = Integer.parseInt(timeArr[0]);
+        int minute = Integer.parseInt(timeArr[1])+duration;
+        while (minute>=60){
+            hour += 1;
+            minute -=60;
+        }
+        return hour+":"+minute+":00";
     }
 }

@@ -42,4 +42,14 @@ public class ShowTimeServiceImp implements ShowTimeService {
     public List<ShowTime> findByDateAndRoomId(String date, int roomId){
         return showTimeRepository.findByDateAndRoomId(date, roomId);
     }
+
+    @Override
+    public ShowTime findNearestShowtimeAfter(String time, String date, int roomId){
+        return showTimeRepository.findNearestShowtimeAfter(time,date,roomId);
+    }
+
+    @Override
+    public ShowTime findNearestShowtimeBefore(String time, String date, int roomId){
+        return showTimeRepository.findNearestShowtimeBefore(time,date,roomId);
+    }
 }

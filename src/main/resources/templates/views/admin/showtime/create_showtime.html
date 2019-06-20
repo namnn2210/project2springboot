@@ -33,6 +33,33 @@
                 }
                 else {
                     time = $('.clock-pick').val()+':00';
+                    var find_data = {
+                        date: date,
+                        id: roomId,
+                        id2: movieId,
+                        time: time
+                    }
+                    alert(find_data.date);
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json",
+                        url: "/admin/showtime/checkShowtime",
+                        data: JSON.stringify(find_data),
+                        cache: false,
+                        timeout: 600000,
+                        dataType: 'json',
+                        success: function (resp) {
+                            if (resp.length == 0 || resp == null) {
+                                alert("No Record");
+                            } else {
+                                alert(resp);
+                            }
+                        },
+                        error: function () {
+                            console.log("Lỗi");
+                        }
+                    });
+
                     //Hàm ajax check kết quả xem có thể tạo ko
                 }
 

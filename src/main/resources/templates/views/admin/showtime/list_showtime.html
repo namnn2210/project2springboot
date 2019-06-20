@@ -60,11 +60,11 @@
                                 while (duration > 60){
                                     duration -= 60;
                                     time[0] = parseInt(time[0]) + 1;
-                                    time[1] = parseInt(time[1]) + duration;
-                                    if (time[1] >=60){
-                                        time[1] -= 60;
-                                        time[0]+=1;
-                                    }
+                                }
+                                time[1] = parseInt(time[1]) + duration;
+                                if (time[1] >=60){
+                                    time[1] -= 60;
+                                    time[0]+=1;
                                 }
 
                                 text += '<tr>'
