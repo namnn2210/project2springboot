@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/booking.css}">
+    <script th:src="@{/js/booking.js}"></script>
 </head>
 <body>
 <div layout:fragment="content" class="booking-wrapper">
@@ -47,7 +48,81 @@
                 <div class="col-md-4">
                     <div class="cart">
                         <h2>ĐƠN HÀNG CỦA BẠN</h2>
+                        <div class="row list-price">
+                            <div class="col-md-8">
+                                <span class="movie-title-booking text-left" th:text="${movie.title}"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="price">0.00</span>
+                            </div>
+                        </div>
+                        <div class="total-price row">
+                            <div class="col-md-4">
+                                <span>Tổng cộng</span>
+                            </div>
+                            <div class="col-md-8">
+                                <span>VND0.00</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="choose-quantity-description">
+            <h3>CHỌN VÉ</h3>
+            <p>Hãy chọn số lượng và loại vé bạn muốn mua.</p>
+            <p>Bạn có thể mua tối đa 4 vé cho một lần giao dịch.</p>
+            <p>Khi sữ dụng mã voucher để đặt vé, khách hàng sẽ phải đem voucher đó đến quầy để xác thực và lấy vé.</p>
+        </div>
+        <div class="choose-quantity">
+            <div class="row">
+                <div class="col-md-4">
+                    <span>Vé</span>
+                </div>
+                <div class="col-md-3">
+                    <span>Giá</span>
+                </div>
+                <div class="col-md-3">
+                    <span>Số lượng</span>
+                </div>
+                <div class="col-md-2">
+                    <span>Tổng</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span>Adult Standard 2D</span>
+                </div>
+                <div class="col-md-3">
+                    <span>65,000.00</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="quantity-numeric">
+                       <input class="icon-minus-standard" type="button" value="-"/>
+                        <input class="quantity-standard" type="text" tabindex="1" min="0" max="4"/>
+                        <input class="icon-plus-standard" type="button" value="+"/>
+                    </span>
+                </div>
+                <div class="col-md-2">
+                    <span>0.00</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span>Adult VIP 2D</span>
+                </div>
+                <div class="col-md-3">
+                    <span>65,000.00</span>
+                </div>
+                <div class="col-md-3">
+                    <span>
+                        <input class="icon-minus-vip" type="button" value="-"/>
+                        <input class="quantity-vip" type="text" tabindex="1" min="0" max="4"/>
+                        <input class="icon-plus-vip" type="button" value="+"/>
+                    </span>
+                </div>
+                <div class="col-md-2">
+                    <span>0.00</span>
                 </div>
             </div>
         </div>
