@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    color:#fff;
 }
 .booking-wrapper {
     margin-top:50px;
@@ -13,7 +14,7 @@ body {
 .make-left {
     margin-left: 30px;
 }
-.movie-overview {
+.movie-overview,.choose-quantity-description {
     margin-top:30px;
 }
 .col-md-7 {
@@ -21,10 +22,44 @@ body {
 }
 .cart {
     background: #333;
+    color: #fff;
 }
 .cart h2 {
     font-size: 22px;
-    color: #fff;
     border-bottom: 1px solid #fff;
     padding: 10px;
+}
+.movie-title-booking {
+    color: #89c441;
+}
+.list-price {
+    padding: 10px;
+    border-bottom: 2px solid rgba(221, 221, 221, 0.12);
+}
+.total-price {
+    padding: 10px;
+}
+.col-md-8 span{
+    float: right;
+}
+.choose-quantity {
+    padding: 20px;
+    border: 1px solid #8BC34A;
+    width: 50%;
+}
+.choose-quantity .row {
+    margin-top: 5px;
+}
+.quantity, .quantity-numeric, .icon-minus, .icon-plus {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 0;
+}
+.icon-plus, .icon-minus {
+    background: none;
+    border: none;
+    color: #8BC34A;
+    font-size: 18px;
+    padding: 5px 10px;
 }
